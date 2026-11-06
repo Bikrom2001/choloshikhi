@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   CholoShikhi brand tokens
+   Navy #102B5C · Bright Blue #2878E5 · Orange #F7941D · Light #F5F8FC
+------------------------------------------------------------------- */
+@theme {
+  --color-navy-50: #eef3fb;
+  --color-navy-100: #dbe5f4;
+  --color-navy-200: #b6c7e3;
+  --color-navy-300: #8aa3cc;
+  --color-navy-400: #5674a8;
+  --color-navy-500: #2f4f87;
+  --color-navy-600: #1d3c72;
+  --color-navy-700: #163366;
+  --color-navy: #102b5c;
+  --color-navy-900: #0c2248;
+  --color-navy-950: #081733;
+
+  --color-brand-50: #eaf2fd;
+  --color-brand-100: #d4e4fb;
+  --color-brand-200: #a9c9f6;
+  --color-brand: #2878e5;
+  --color-brand-600: #1e66c8;
+  --color-brand-700: #1853a3;
+
+  --color-accent-50: #fef4e8;
+  --color-accent-100: #fde6c8;
+  --color-accent: #f7941d;
+  --color-accent-600: #dd7c08;
+  --color-accent-700: #b86506;
+
+  --color-surface: #f5f8fc;
+  --color-ink: #1b2a41;
+  --color-muted: #5b6b82;
+  --color-line: #e3e9f2;
+
+  --radius-card: 1.25rem;
+
+  --shadow-soft: 0 1px 2px rgb(16 43 92 / 0.04), 0 8px 24px -12px rgb(16 43 92 / 0.12);
+  --shadow-lift: 0 2px 4px rgb(16 43 92 / 0.05), 0 20px 40px -16px rgb(16 43 92 / 0.22);
+  --shadow-cta: 0 10px 24px -10px rgb(247 148 29 / 0.6);
+
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+@theme inline {
+  --font-sans: var(--font-hind), var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-hind), ui-sans-serif, system-ui, sans-serif;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-navy;
+    letter-spacing: -0.01em;
+  }
+  ::selection {
+    @apply bg-brand-100 text-navy;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+  .card {
+    @apply rounded-[var(--radius-card)] border border-line bg-white shadow-soft;
+  }
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgb(16 43 92 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(16 43 92 / 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+  .prose-cs {
+    @apply text-[1.0625rem] leading-8 text-ink/90;
+  }
+  .prose-cs h2 {
+    @apply mt-10 mb-4 text-2xl font-bold;
+  }
+  .prose-cs p {
+    @apply mb-5;
+  }
+  .prose-cs ul {
+    @apply mb-6 space-y-2 pl-0;
+  }
+  .prose-cs blockquote {
+    @apply my-8 rounded-2xl border-l-4 border-accent bg-accent-50 px-6 py-5 text-lg font-medium text-navy;
+  }
+}
