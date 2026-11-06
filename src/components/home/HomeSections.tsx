@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Flame, GraduationCap, Laptop, Users } from "lucide-react";
 import type { Course, FeatureItem, Instructor, Stat } from "@/types";
 import { CourseCard } from "@/components/course/CourseCard";
 import { InstructorCard } from "@/components/instructor/InstructorCard";
@@ -12,21 +12,142 @@ import { cn } from "@/lib/utils";
 
 /* ------------------------------ Stats ------------------------------ */
 
+const STAT_STYLES = [
+  {
+    icon: GraduationCap,
+    badge: "ক্যারিয়ার ট্র্যাক",
+    iconBox: "bg-brand-50 text-brand border-brand-200/60",
+    badgeStyle: "bg-brand-50/80 text-brand border-brand-200/80",
+    glow: "bg-brand/20",
+    accentHover: "hover:border-brand/40",
+    numberColor: "text-navy group-hover:text-brand",
+    bottomGlow: "from-brand/20 via-brand to-brand/20",
+  },
+  {
+    icon: Flame,
+    badge: "সীমিত সুযোগ",
+    iconBox: "bg-accent-50 text-accent border-accent-200/60",
+    badgeStyle: "bg-accent-50/80 text-accent-700 border-accent-200/80",
+    glow: "bg-accent/25",
+    accentHover: "hover:border-accent/40",
+    numberColor: "text-navy group-hover:text-accent",
+    bottomGlow: "from-accent/20 via-accent to-accent/20",
+  },
+  {
+    icon: Users,
+    badge: "সফল অ্যালামনাই",
+    iconBox: "bg-emerald-50 text-emerald-600 border-emerald-200/60",
+    badgeStyle: "bg-emerald-50/80 text-emerald-700 border-emerald-200/80",
+    glow: "bg-emerald-500/20",
+    accentHover: "hover:border-emerald-500/40",
+    numberColor: "text-navy group-hover:text-emerald-600",
+    bottomGlow: "from-emerald-500/20 via-emerald-500 to-emerald-500/20",
+  },
+  {
+    icon: Laptop,
+    badge: "হাতে-কলমে কাজ",
+    iconBox: "bg-indigo-50 text-indigo-600 border-indigo-200/60",
+    badgeStyle: "bg-indigo-50/80 text-indigo-700 border-indigo-200/80",
+    glow: "bg-indigo-500/20",
+    accentHover: "hover:border-indigo-500/40",
+    numberColor: "text-navy group-hover:text-indigo-600",
+    bottomGlow: "from-indigo-500/20 via-indigo-500 to-indigo-500/20",
+  },
+];
+
 export function StatsSection({ stats }: { stats: Stat[] }) {
   return (
     <section aria-label="CholoShikhi at a glance" className="relative z-10 -mt-2 bg-white">
       <div className="container-page">
-        <div className="grid -translate-y-8 grid-cols-2 gap-3 rounded-[1.75rem] border border-line bg-white p-3 shadow-lift sm:gap-4 sm:p-4 lg:grid-cols-4">
-          {stats.map((stat, i) => (
-            <Reveal key={stat.label} delay={i * 0.06}>
-              <div className="relative h-full rounded-2xl bg-surface p-5 sm:p-6">
-                {stat.isPlaceholder && <SampleBadge className="absolute right-3 top-3">Editable</SampleBadge>}
-                <p className="font-display text-3xl font-extrabold text-navy sm:text-4xl">{stat.value}</p>
-                <p className="mt-1 font-semibold text-brand">{stat.label}</p>
-                <p className="mt-1 text-sm text-muted">{stat.description}</p>
-              </div>
-            </Reveal>
-          ))}
+        {/* Floating container with subtle ambient gradient glow */}
+        <div className="relative -translate-y-8 sm:-translate-y-10">
+          <div
+            className="pointer-events-none absolute -inset-0.5 rounded-[2rem] bg-gradient-to-r from-brand/20 via-accent/25 to-brand/20 opacity-70 blur-[3px]"
+            aria-hidden="true"
+          />
+
+          <div className="relative rounded-[2rem] border border-line bg-white/95 p-3.5 shadow-lift backdrop-blur-xl sm:p-5">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
+              {stats.map((stat, i) => {
+                const style = STAT_STYLES[i % STAT_STYLES.length];
+                const IconComponent = style.icon;
+
+                return (
+                  <Reveal key={stat.label} delay={i * 0.06}>
+                    <div
+                      className={cn(
+                        "group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-line/70 bg-gradient-to-b from-white via-white to-surface p-4 transition-all duration-300 ease-out sm:p-5",
+                        "hover:-translate-y-1 hover:shadow-lg",
+                        style.accentHover
+                      )}
+                    >
+                      {/* Ambient hover glow in corner */}
+                      <div
+                        className={cn(
+                          "pointer-events-none absolute -bottom-8 -right-8 h-28 w-28 rounded-full opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100",
+                          style.glow
+                        )}
+                        aria-hidden="true"
+                      />
+
+                      {/* Header with Icon and Badge */}
+                      <div className="flex items-center justify-between gap-2">
+                        <div
+                          className={cn(
+                            "flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl border transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-xs",
+                            style.iconBox
+                          )}
+                        >
+                          <IconComponent className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
+                        </div>
+
+                        {stat.isPlaceholder ? (
+                          <SampleBadge>Editable</SampleBadge>
+                        ) : (
+                          <span
+                            className={cn(
+                              "inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] sm:text-xs font-semibold tracking-wide",
+                              style.badgeStyle
+                            )}
+                          >
+                            <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse" />
+                            {style.badge}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Numbers and text */}
+                      <div className="mt-4 sm:mt-5">
+                        <p
+                          className={cn(
+                            "font-display text-2xl min-[400px]:text-3xl sm:text-4xl font-extrabold tracking-tight transition-colors duration-200",
+                            style.numberColor
+                          )}
+                        >
+                          {stat.value}
+                        </p>
+                        <p className="mt-1 font-bold text-ink text-sm sm:text-base">
+                          {stat.label}
+                        </p>
+                        <p className="mt-1 text-xs sm:text-sm text-muted leading-relaxed">
+                          {stat.description}
+                        </p>
+                      </div>
+
+                      {/* Glowing bottom accent line on hover */}
+                      <div
+                        className={cn(
+                          "pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r opacity-0 transition-opacity duration-300 group-hover:opacity-100",
+                          style.bottomGlow
+                        )}
+                        aria-hidden="true"
+                      />
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

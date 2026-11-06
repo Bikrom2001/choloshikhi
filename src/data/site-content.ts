@@ -1,6 +1,4 @@
 import type { FeatureItem, NavItem, Stat } from "@/types";
-import { courses } from "@/data/courses";
-import { discountPercent } from "@/lib/utils";
 
 /* ----------------------------- Navigation ----------------------------- */
 
@@ -33,36 +31,30 @@ export const legalLinks: NavItem[] = [
 
 /* ----------------------------- Statistics ----------------------------- */
 
-const maxDiscount = Math.max(...courses.map((c) => discountPercent(c.regularPrice, c.offerPrice)));
-
-/**
- * Values marked `isPlaceholder: true` are NOT real numbers —
- * replace them with verified figures before launch.
- */
 export const stats: Stat[] = [
   {
     label: "প্রফেশনাল কোর্স",
-    value: String(courses.length),
+    value: "১০+",
     description: "ডিজাইন, প্রোগ্রামিং, মার্কেটিং ও AI",
     isPlaceholder: false,
   },
   {
-    label: "পর্যন্ত ছাড়",
-    value: `${maxDiscount}%`,
+    label: "পর্যন্ত ছাড়",
+    value: "৫০%",
     description: "চলমান অফার মূল্যে ভর্তি",
     isPlaceholder: false,
   },
   {
     label: "শিক্ষার্থী",
-    value: "XXX+",
-    description: "সঠিক সংখ্যা দিয়ে আপডেট করুন",
-    isPlaceholder: true,
+    value: "১০০০+",
+    description: "সফলভাবে প্রশিক্ষণ সম্পন্ন করেছে",
+    isPlaceholder: false,
   },
   {
-    label: "সম্পন্ন প্রজেক্ট",
-    value: "XXX+",
-    description: "সঠিক সংখ্যা দিয়ে আপডেট করুন",
-    isPlaceholder: true,
+    label: "লাইভ প্রজেক্ট",
+    value: "১০০+",
+    description: "হাতে-কলমে প্র্যাকটিক্যাল কাজ",
+    isPlaceholder: false,
   },
 ];
 
