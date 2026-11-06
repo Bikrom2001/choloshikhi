@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, BadgePercent, CheckCircle2, PlayCircle, Sparkles } from "lucide-react";
 import { ButtonLink } from "@/components/ui/Button";
@@ -23,15 +24,48 @@ export function Hero({ courseCount, maxDiscount }: HeroProps) {
 
       <div className="container-page relative grid items-center gap-12 py-14 sm:py-20 lg:grid-cols-[1.05fr_1fr] lg:gap-10 lg:py-24">
         <div>
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
+          {/* Animated, highlighted announcement banner pill */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease }}
-            className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-white px-3.5 py-1.5 text-sm font-semibold text-navy shadow-soft"
+            className="inline-block"
           >
-            <Sparkles className="h-4 w-4 text-accent" aria-hidden="true" />
-            ভর্তি চলছে — সীমিত সময়ের অফার মূল্যে
-          </motion.p>
+            <Link
+              href="/admission"
+              className="group relative inline-flex items-center overflow-hidden rounded-full p-[2px] shadow-[0_4px_24px_-4px_rgba(247,148,29,0.38)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_6px_28px_-2px_rgba(247,148,29,0.52)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              aria-label="ভর্তি চলছে — সীমিত সময়ের অফার মূল্যে"
+            >
+              {/* Continuous rotating gradient highlight border */}
+              <span
+                className="absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,#F7941D,#2878E5,#102B5C,#F7941D)] animate-[spin_5s_linear_infinite]"
+                aria-hidden="true"
+              />
+
+              {/* Inner container with prominent height and styling */}
+              <span className="relative flex h-11 sm:h-12 items-center gap-2.5 rounded-full bg-white px-3.5 sm:px-4.5 py-1.5 backdrop-blur-md transition-colors group-hover:bg-white/95">
+                {/* Live pulsing badge */}
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-accent to-accent-600 px-2.5 sm:px-3 py-1 text-xs font-bold text-white shadow-xs">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-80" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+                  </span>
+                  <span>ভর্তি চলছে</span>
+                </span>
+
+                {/* Highlighted text */}
+                <span className="text-xs sm:text-sm font-bold text-navy transition-colors group-hover:text-brand">
+                  সীমিত সময়ের অফার মূল্যে
+                </span>
+
+                {/* Animated sparkle and arrow */}
+                <span className="flex items-center text-accent transition-transform duration-300 group-hover:translate-x-1">
+                  <Sparkles className="h-4 w-4 animate-pulse" aria-hidden="true" />
+                  <ArrowRight className="ml-1 h-3.5 w-3.5 opacity-70 transition-opacity group-hover:opacity-100" aria-hidden="true" />
+                </span>
+              </span>
+            </Link>
+          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
