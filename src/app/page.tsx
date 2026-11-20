@@ -45,7 +45,7 @@ export default async function HomePage() {
       <PopularCoursesSection courses={courses} />
       <WhyChooseSection items={whyChooseUs} />
       <LearningProcessSection steps={learningSteps} />
-      <FeaturedInstructorsSection instructors={instructors.slice(0, 4)} />
+      <FeaturedInstructorsSection instructors={instructors.filter((i) => !i.isPlaceholder)} />
 
       <section className="section bg-surface" aria-labelledby="testimonials">
         <div className="container-page">

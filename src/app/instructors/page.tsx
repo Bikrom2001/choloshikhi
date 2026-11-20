@@ -1,6 +1,5 @@
 import { InstructorCard } from "@/components/instructor/InstructorCard";
 import { CTASection } from "@/components/sections/CTASection";
-import { Notice } from "@/components/ui/Feedback";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { getAllInstructors } from "@/services/content";
@@ -14,7 +13,6 @@ export const metadata = buildMetadata({
 
 export default async function InstructorsPage() {
   const instructors = await getAllInstructors();
-  const hasPlaceholders = instructors.some((i) => i.isPlaceholder);
 
   return (
     <>
@@ -26,11 +24,6 @@ export default async function InstructorsPage() {
       />
       <section className="section">
         <div className="container-page">
-          {hasPlaceholders && (
-            <Notice className="mb-8">
-              ইনস্ট্রাক্টরদের নাম, ছবি ও বিস্তারিত প্রোফাইল শীঘ্রই প্রকাশ করা হবে। বর্তমানে বিষয়ভিত্তিক প্রোফাইল দেখানো হচ্ছে।
-            </Notice>
-          )}
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {instructors.map((instructor, i) => (
               <Reveal as="li" key={instructor.slug} delay={(i % 3) * 0.06}>

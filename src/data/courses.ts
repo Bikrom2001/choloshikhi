@@ -126,7 +126,7 @@ export const courses: Course[] = [
     requirements: ["কোনো পূর্ব অভিজ্ঞতার প্রয়োজন নেই", "শেখার আগ্রহ"],
     whoShouldEnroll: ["কম্পিউটারে একদম নতুন যারা", "শিক্ষার্থী ও চাকরিপ্রার্থী", "অফিসে কর্মরত যারা দক্ষতা বাড়াতে চান", "যেকোনো IT কোর্স শুরুর আগে ভিত্তি গড়তে চান যারা"],
     features: coreFeatures,
-    instructorSlug: "computer-fundamentals-mentor",
+    instructorSlug: "amena-aktar-happy",
     isPopular: true,
     faqs: [
       { question: "একদম নতুনরা কি এই কোর্স করতে পারবে?", answer: "অবশ্যই। এই কোর্সটি বিশেষভাবে নতুনদের জন্য তৈরি।" },
@@ -170,7 +170,7 @@ export const courses: Course[] = [
     requirements: ["বেসিক কম্পিউটার ও ইন্টারনেট ব্যবহারের দক্ষতা", "একটি ল্যাপটপ/কম্পিউটার", "ইংরেজি পড়ে বোঝার বেসিক দক্ষতা"],
     whoShouldEnroll: ["ফ্রিল্যান্সিং শুরু করতে আগ্রহী", "অনলাইন ব্যবসায়ী ও উদ্যোক্তা", "মার্কেটিংয়ে ক্যারিয়ার গড়তে চান যারা", "শিক্ষার্থী ও চাকরিপ্রার্থী"],
     features: [...coreFeatures, "ফ্রিল্যান্সিং গাইডলাইন"],
-    instructorSlug: "digital-marketing-mentor",
+    instructorSlug: "md-shimul-khan",
     isPopular: true,
     faqs: [
       { question: "বিজ্ঞাপনের জন্য কি টাকা খরচ করতে হবে?", answer: "শেখার সময় বেশিরভাগ প্র্যাকটিস ডেমো ও ছোট বাজেটে করা সম্ভব। বিস্তারিত গাইডলাইন ক্লাসে দেওয়া হবে।" },
@@ -215,7 +215,7 @@ export const courses: Course[] = [
     requirements: ["বেসিক কম্পিউটার দক্ষতা", "একটি ল্যাপটপ/কম্পিউটার (৮GB RAM হলে ভালো)", "যুক্তি দিয়ে সমস্যা সমাধানের আগ্রহ"],
     whoShouldEnroll: ["ওয়েব ডেভেলপার হতে চান যারা", "CSE/IT শিক্ষার্থী", "চাকরি বা ফ্রিল্যান্সিংয়ের জন্য প্রস্তুতি নিচ্ছেন যারা", "নিজের স্টার্টআপ আইডিয়া বাস্তবায়ন করতে চান যারা"],
     features: [...coreFeatures, "রিয়েল-ওয়ার্ল্ড প্রজেক্ট"],
-    instructorSlug: "web-development-mentor",
+    instructorSlug: "sourov-saha",
     isPopular: true,
     faqs: [
       { question: "প্রোগ্রামিং না জানলে কি এই কোর্স করা যাবে?", answer: "হ্যাঁ। কোর্সটি ওয়েবের বেসিক থেকে শুরু হয়, তবে নিয়মিত অনুশীলন জরুরি।" },
@@ -259,7 +259,7 @@ export const courses: Course[] = [
     requirements: ["বেসিক কম্পিউটার দক্ষতা", "একটি ল্যাপটপ/কম্পিউটার", "নিয়মিত কোডিং অনুশীলনের মানসিকতা"],
     whoShouldEnroll: ["প্রোগ্রামিং শুরু করতে চান যারা", "ব্যাকএন্ড ডেভেলপমেন্টে আগ্রহী", "CSE/IT শিক্ষার্থী", "ডেটা সায়েন্স শেখার আগে Python-এর ভিত্তি গড়তে চান যারা"],
     features: [...coreFeatures, "রিয়েল-ওয়ার্ল্ড প্রজেক্ট"],
-    instructorSlug: "python-mentor",
+    instructorSlug: "md-robiul-islam-nahiyan",
     isPopular: true,
     faqs: [
       { question: "Python কি নতুনদের জন্য ভালো?", answer: "হ্যাঁ। Python-এর সিনট্যাক্স সহজ ও পরিষ্কার, তাই প্রোগ্রামিং শুরু করার জন্য এটি অন্যতম সেরা ভাষা।" },
@@ -302,7 +302,7 @@ export const courses: Course[] = [
     requirements: ["কম্পিউটার বা ল্যাপটপ", "অভিভাবকের সহযোগিতা", "কোনো পূর্ব অভিজ্ঞতা প্রয়োজন নেই"],
     whoShouldEnroll: ["প্রযুক্তিতে আগ্রহী শিশুরা", "যেসব অভিভাবক সন্তানকে স্ক্রিন টাইম থেকে শেখার দিকে নিতে চান", "গেম ও অ্যানিমেশন পছন্দ করে এমন শিশু"],
     features: ["শিশু-বান্ধব শেখার পদ্ধতি", "গেম ও প্রজেক্ট-ভিত্তিক ক্লাস", "লজিক্যাল থিংকিং ডেভেলপমেন্ট", "ধাপে ধাপে সহজ লেসন"],
-    instructorSlug: "kids-programming-mentor",
+    instructorSlug: "md-mostofa-zaber",
     isPopular: true,
     faqs: [
       { question: "কোন বয়সের শিশুরা এই কোর্স করতে পারবে?", answer: "উপযুক্ত বয়সসীমা ও ব্যাচ সম্পর্কে জানতে আমাদের সাথে যোগাযোগ করুন — আমাদের টিম আপনার সন্তানের জন্য সঠিক গাইডলাইন দেবে।" },
@@ -346,7 +346,7 @@ export const courses: Course[] = [
     requirements: ["বেসিক Python জানা থাকলে ভালো (না জানলেও শুরু করা যাবে)", "স্কুল-লেভেলের গণিত", "একটি ল্যাপটপ/কম্পিউটার"],
     whoShouldEnroll: ["ডেটা সায়েন্স বা AI-তে ক্যারিয়ার গড়তে চান যারা", "CSE, Statistics, Economics ও Business শিক্ষার্থী", "ডেটা নিয়ে কাজ করা প্রফেশনাল", "গবেষণায় আগ্রহী শিক্ষার্থী"],
     features: [...coreFeatures, "রিয়েল ডেটাসেট নিয়ে প্রজেক্ট"],
-    instructorSlug: "python-mentor",
+    instructorSlug: "md-mostofa-zaber",
     isPopular: true,
     faqs: [
       { question: "গণিতে দুর্বল হলে কি পারব?", answer: "প্রয়োজনীয় গণিত ও পরিসংখ্যান কোর্সের ভেতরেই সহজভাবে শেখানো হবে, তাই চিন্তার কিছু নেই।" },

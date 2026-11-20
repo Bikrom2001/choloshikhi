@@ -285,7 +285,7 @@ export function FeaturedInstructorsSection({ instructors }: { instructors: Instr
             সব ইনস্ট্রাক্টর <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
-        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {instructors.map((instructor, i) => (
             <Reveal as="li" key={instructor.slug} delay={i * 0.06}>
               <InstructorCard instructor={instructor} />

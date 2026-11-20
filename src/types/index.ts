@@ -71,6 +71,12 @@ export interface Instructor {
   specialization: string;
   bio: string;
   expertise: string[];
+  /** Professional experience / work history */
+  experience?: string[];
+  /** Professional certifications & credentials */
+  certifications?: string[];
+  /** Academic degrees / education */
+  education?: string[];
   /** Course slugs this instructor teaches */
   courseSlugs: string[];
   /** Optional photo. Initials avatar is shown when missing. */

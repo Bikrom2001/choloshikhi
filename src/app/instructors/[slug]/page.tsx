@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { BookOpen, Briefcase, Globe } from "lucide-react";
+import { Award, BookOpen, Briefcase, Globe, GraduationCap } from "lucide-react";
 import { CourseCard } from "@/components/course/CourseCard";
 import { CTASection } from "@/components/sections/CTASection";
 import { Avatar } from "@/components/ui/Avatar";
@@ -107,6 +107,49 @@ export default async function InstructorProfilePage({ params }: Props) {
                 ))}
               </ul>
             </section>
+            {instructor.experience && instructor.experience.length > 0 && (
+              <section className="card p-6 sm:p-8">
+                <h2 className="text-xl font-extrabold sm:text-2xl">পেশাগত অভিজ্ঞতা</h2>
+                <ul className="mt-5 space-y-3">
+                  {instructor.experience.map((exp) => (
+                    <li key={exp} className="flex items-center gap-3 text-ink/90 font-medium">
+                      <span className="h-2 w-2 rounded-full bg-brand shrink-0" aria-hidden="true" />
+                      <span>{exp}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+            {instructor.education && instructor.education.length > 0 && (
+              <section className="card p-6 sm:p-8">
+                <h2 className="text-xl font-extrabold sm:text-2xl">শিক্ষাগত যোগ্যতা</h2>
+                <ul className="mt-5 space-y-3">
+                  {instructor.education.map((edu) => (
+                    <li key={edu} className="flex items-center gap-3 text-ink/90 font-medium">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand font-bold text-sm shadow-xs">
+                        <GraduationCap className="h-4 w-4" aria-hidden="true" />
+                      </span>
+                      <span>{edu}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+            {instructor.certifications && instructor.certifications.length > 0 && (
+              <section className="card p-6 sm:p-8">
+                <h2 className="text-xl font-extrabold sm:text-2xl">সার্টিফিকেশন ও প্রফেশনাল ট্রেনিং</h2>
+                <ul className="mt-5 space-y-3">
+                  {instructor.certifications.map((cert) => (
+                    <li key={cert} className="flex items-center gap-3 text-ink/90 font-medium">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-accent-50 text-accent font-bold text-sm shadow-xs">
+                        <Award className="h-4 w-4" aria-hidden="true" />
+                      </span>
+                      <span>{cert}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
             <section>
               <h2 className="text-xl font-extrabold sm:text-2xl">যে কোর্সগুলো পড়ান</h2>
               <ul className="mt-5 grid gap-6 sm:grid-cols-2">
